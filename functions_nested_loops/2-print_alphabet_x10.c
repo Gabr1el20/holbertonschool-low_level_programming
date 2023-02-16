@@ -12,7 +12,7 @@
 	char x;
 	int q = 0;
 
-	while (q < 9)
+	while (q <= 9)
 	{
 
 	for (x = 'a'; x <= 'z'; x++)
