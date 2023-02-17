@@ -10,10 +10,17 @@
 {
 	if (x < 0)
 	{
-		int val_abs;
+		int _absval;
 
-		val_abs = x * -1;
-		return (val_abs);
+		_absval = x * -1;
+		return (_absval);
+	}
+	else
+	{
+		int otro;
+
+		otro = x * 1;
+		return (otro);
 	}
 	return (0);
 }
