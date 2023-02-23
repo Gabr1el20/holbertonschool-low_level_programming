@@ -34,6 +34,8 @@ int main(void)
 			printf("%d", x);
 			printf(" ");
 		}
+		if (x == 100)
+			continue;
 	}
 	printf("\n");
 	return (0);
