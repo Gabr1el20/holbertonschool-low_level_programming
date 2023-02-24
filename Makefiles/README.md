@@ -1,6 +1,6 @@
-0-Makefile: My first Makefile.
-1-Makefile: My first Makefile with variables.
-2-Makefile: My first useful Makefile
-3-Makefile: a Makefile with variables and different rules.
-4-Makefile: A complete Makefile.
-100-Makefile: A complete Makefile, with Phony rules.
+- `0-Makefile`: My first Makefile.
+- `1-Makefile`: My first Makefile with variables.
+- `2-Makefile`: My first useful Makefile
+- `3-Makefile`: a Makefile with variables and different rules.
+- `4-Makefile`: A complete Makefile.
+- `100-Makefile`: A complete Makefile, with Phony rules.
