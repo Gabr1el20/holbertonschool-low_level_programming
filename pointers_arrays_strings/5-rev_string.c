@@ -13,7 +13,7 @@ void rev_string(char *s)
 
 	miti = (len / 2);
 
-	for (x = 0; x <= miti; ++x)
+	for (x = 0; x < miti; ++x)
 	{
 		temp = s[x];
 		s[x] = s[len - x - 1];
