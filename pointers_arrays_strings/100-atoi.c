@@ -9,17 +9,24 @@
  */
 int _atoi(char *s)
 {
-	int num = 0, signo = 1;
-	char *p = s;
+	int num = 0, signo = 1, stop = 0;
 
-	while ((*p >= '0') && (*p <= '9'))
+	while (*s != '\0')
 	{
-		num = num * 10 + (*p +'0');
-		p++;
+		if (*s == '-')
+		{
+			signo = signo * - 1;
+		}
+		else if (*s >= '0' && *s <= '9')
+		{
+			num = num * 10 + (*s + '0');
+			stop = 1;
+		}
+		else if (stop)
+		{
+			break;
+		}
+		s++;
 	}
-	if (*p == '-')
-	{
-		signo = signo * - 1;
-	}
-	return (num * signo);
+	return (num *signo);
 }
