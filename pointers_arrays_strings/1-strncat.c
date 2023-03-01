@@ -5,6 +5,8 @@
  * @dest: destinary.
  * @src: source
  * @n: the amount of bytes.
+ *
+ * Return: The pointer to the dest.
  */
 char *_strncat(char *dest, char *src, int n)
 {
