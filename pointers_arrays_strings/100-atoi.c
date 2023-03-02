@@ -9,9 +9,9 @@
  */
 int _atoi(char *s)
 {
-	int num = 0, signo = 1;
+	long int num = 0, signo = 1;
 
-	for (; *s != '\0';s++)
+	for (; *s != '\0'; s++)
 	{
 		if (*s >= '0' && *s <= '9')
 		{
