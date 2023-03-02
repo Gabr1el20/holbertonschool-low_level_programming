@@ -9,24 +9,22 @@
  */
 int _atoi(char *s)
 {
-	int num = 0, signo = 1, stop = 0;
+	int num = 0, signo = 1;
 
-	while (*s != '\0')
+	for (; *s != '\0'; s++)
 	{
-		if (*s == '-')
+		if (*s >= '0' && *s <= '9')
 		{
-			signo = signo * - 1;
+			num = (num * 10) + (*s + '0');
 		}
-		else if (*s >= '0' && *s <= '9')
-		{
-			num = num * 10 + (*s + '0');
-			stop = 1;
-		}
-		else if (stop)
+		else if (num > 0)
 		{
 			break;
 		}
-		s++;
+		else if (*s == '-')
+		{
+			signo = signo * -1;
+		}
 	}
-	return (num *signo);
+	return (num * signo);
 }
