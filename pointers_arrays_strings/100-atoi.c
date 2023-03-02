@@ -9,7 +9,7 @@
  */
 int _atoi(char *s)
 {
-	int num = 0, signo = 1;
+	unsigned int num = 0, signo = 1;
 
 	for (; *s != '\0'; s++)
 	{
