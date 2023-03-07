@@ -6,8 +6,6 @@
  *
  * Return: The square root
  */
-int aux(int x, int y);
-
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
