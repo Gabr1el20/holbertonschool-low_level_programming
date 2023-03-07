@@ -1,20 +1,6 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - Returns the nartural square root of a number.
- * @n: The natural number.
- *
- * Return: The square root
- */
-int _sqrt_recursion(int n)
-{
-	if (n < 0)
-		return (-1);
-
-	return (aux(n, 1));
-}
-
-/**
  * aux - Auxiliar function to calculate square roots.
  * @x: Placeholder.
  * @y: The calculator.
@@ -31,3 +17,17 @@ int aux(int x, int y)
 
 	return (aux(x, y + 1));
 }
+/**
+ * _sqrt_recursion - Returns the nartural square root of a number.
+ * @n: The natural number.
+ *
+ * Return: The square root
+ */
+int _sqrt_recursion(int n)
+{
+	if (n < 0)
+		return (-1);
+
+	return (aux(n, 1));
+}
+
