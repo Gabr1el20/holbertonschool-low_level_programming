@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	int cents[5] = {25, 10, 5, 2, 1};
 	int mons = 0;
-	int cant = atoi(argv[1]);
+	int cant = 0;
 	int count;
 
 	if (argc - 1 < 0)
@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
+		cant = atoi(argv[1]);
 		for (count = 0; count < 5; count++)
 		{
 			while (cant >= cents[count])
