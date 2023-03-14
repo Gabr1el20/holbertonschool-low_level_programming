@@ -2,6 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/**
+ * free_grid - A function that frees a memory allocation
+ * @grid: a pointer to the memory.
+ * @height: height
+ */
+void free_grid(int **grid, int height)
+{
+	int i;
+
+	for (i = 0; i < height; i++)
+	{
+		free(grid[i]);
+	}
+	free(grid);
+}
+
 /**
  * alloc_grid - A function that returns a pointer to
  * a 2D array.
@@ -31,27 +48,11 @@ int **alloc_grid(int width, int height)
 			free_grid(ptr, i);
 			return (NULL);
 		}
+
 		for (j = 0; j < width; j++)
 		{
 			ptr[i][j] = 0;
 		}
-
 	}
 	return (ptr);
-}
-
-/**
- * free_grid - A function that frees a memory allocation
- * @grid: a pointer to the memory.
- * @height: height of the array
- */
-void free_grid(int **grid, int height)
-{
-	int count;
-
-	for (count = 0; count < height; count++)
-	{
-		free(grid[count]);
-	}
-	free(grid);
 }
