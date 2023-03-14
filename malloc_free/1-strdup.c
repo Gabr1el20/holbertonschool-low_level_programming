@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _strdup - A function thar returns a pointer to
@@ -10,7 +11,7 @@
  */
 char *_strdup(char *str)
 {
-	unsigned int i, count;
+	unsigned int i, count = 0;
 	char *ptr;
 
 	if (str == NULL)
