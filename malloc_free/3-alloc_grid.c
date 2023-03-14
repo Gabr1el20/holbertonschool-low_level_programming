@@ -13,7 +13,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **ptr, i;
+	int **ptr, i, j;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -26,6 +26,32 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < height; i++)
 	{
 		ptr[i] = malloc(width * sizeof(int));
+		if (ptr[i] == NULL)
+		{
+			free_grid(ptr, i);
+			return (NULL);
+		}
+		for (j = 0; j < width; j++)
+		{
+			ptr[i][j] = 0;
+		}
+
 	}
 	return (ptr);
+}
+
+/**
+ * free_grid - A function that frees a memory allocation
+ * @grid: a pointer to the memory.
+ * @height: height of the array
+ */
+void free_grid(int **grid, int height)
+{
+	int count;
+
+	for (count = 0; count < height; count++)
+	{
+		free(grid[count]);
+	}
+	free(grid);
 }
