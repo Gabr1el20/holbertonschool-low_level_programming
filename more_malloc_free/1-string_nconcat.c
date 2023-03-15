@@ -15,7 +15,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int count1 = 0;
-       	unsigned int count2 = 0;
+	unsigned int count2 = 0;
 	unsigned int i;
 	char *ptr;
 
@@ -30,6 +30,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		count2++;
 
 	ptr = malloc(count1 + count2 + 1);
+
+	if (ptr == NULL)
+		return NULL;
 
 	for (i = 0; i < count1; i++)
 	{
