@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * _memset - A function that fills memory with
@@ -32,17 +33,18 @@ unsigned int *_memset(unsigned int *s, char b, unsigned int n)
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int amount;
 	unsigned int *p;
 
-	amount = nmemb * size;
+	if (nmemb == 0 || size == 0)
+		return (NULL);
 
-	p = malloc(amount);
+	p = malloc(nmemb * sizeof(size));
 
 	if (p == NULL)
 	{
-		_memset(p, 0, size);
 		return (NULL);
 	}
+	else
+		_memset(p, 0, size);
 	return (p);
 }
