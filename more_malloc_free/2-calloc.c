@@ -12,14 +12,14 @@
  *
  *  Return: A pointer to the memory area s.
  */
-unsigned int *_memset(unsigned int *s, char b, unsigned int n)
+void *_memset(void *s, char b, unsigned int n)
 {
-	unsigned int *ptr = s;
+	unsigned char *ptr = s;
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
 	{
-		ptr[i] = b;
+		ptr[i] = (unsigned char)b;
 	}
 	return (ptr);
 }
@@ -33,18 +33,18 @@ unsigned int *_memset(unsigned int *s, char b, unsigned int n)
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int *p;
+	void *p;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	p = malloc(nmemb * sizeof(size));
+	p = malloc(nmemb * size);
 
 	if (p == NULL)
 	{
 		return (NULL);
 	}
 	else
-		_memset(p, 0, size);
+		_memset(p, 0, (nmemb * size));
 	return (p);
 }
