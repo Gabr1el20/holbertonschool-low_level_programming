@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * list-len - A function thar returns the number
+ * list_len - A function thar returns the number
  * of elements.
  * @h: Pointer
  *
