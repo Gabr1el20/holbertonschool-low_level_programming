@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * set_bit - sets the value of a bit to 1
+ * clear_bit - sets the value of a bit to 1
  * @n: Placeholder
  * @index: Index
  * Return: '1' if it worked, '1' otherwise.
  */
-int set_bit(unsigned long int *n, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int ref;
 
@@ -18,7 +18,9 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	ref = 1 << index;
 
-	*n = *n | ref;
+	ref = ~ref;
+
+	*n = *n & ref;
 
 	return (1);
 }
