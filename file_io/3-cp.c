@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		if (reader == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
 		written = write(to, buffer, reader);
 		if (written == -1)
