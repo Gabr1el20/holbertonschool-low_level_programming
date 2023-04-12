@@ -1,4 +1,5 @@
 #include "main.h"
+#define FULL_SIZE 1024
 
 /**
  * main - function to copies the content
@@ -11,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	ssize_t from, to, reader, written;
-	char *buffer[1024];
+	char *buffer[FULL_SIZE];
 
 	if (argc != 3)
 	{
@@ -25,20 +26,19 @@ int main(int argc, char *argv[])
 	}
 	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (to == -1)
-	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	}
-	reader = read(from, buffer, 1024);
-	if (reader == -1)
+	while ((reader = read(from, buffer, FULL_SIZE)))
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	written = write(to, buffer, reader);
-	if (written == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		if (reader == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		}
+		written = write(to, buffer, reader);
+		if (written == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
 	}
 	if (close(from) == -1)
 	{
