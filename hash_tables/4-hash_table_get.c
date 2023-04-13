@@ -9,18 +9,21 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned long int index = key_index((const unsigned char *) key, ht->size);
-	hash_node_t *nodo = ht->array[index];
-	char *save;
+	unsigned long int index;
+	hash_node_t *nodo;
+	char *save = NULL;
 
-	if (!ht || !key)
+	if (ht == NULL)
 		return (NULL);
+	index = key_index((const unsigned char *) key, ht->size);
+	nodo = ht->array[index];
 
 	while (nodo != NULL)
 	{
 		if (strcmp(nodo->key, key) == 0)
 		{
 			save = nodo->value;
+			break;
 		}
 		nodo = nodo->next;
 	}
