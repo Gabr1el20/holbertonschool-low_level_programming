@@ -9,7 +9,6 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i;
 	hash_node_t *nodo;
 	char *separator = "";
-	char *sep2 = ", ";
 
 	if (!ht)
 		return;
@@ -21,8 +20,8 @@ void hash_table_print(const hash_table_t *ht)
 		while (nodo)
 		{
 			printf("%s", separator);
-			printf("'%s' : '%s'", nodo->key, nodo->value);
-			printf("%s", sep2);
+			printf("'%s': '%s'", nodo->key, nodo->value);
+			separator = ", ";
 			nodo = nodo->next;
 		}
 	}
