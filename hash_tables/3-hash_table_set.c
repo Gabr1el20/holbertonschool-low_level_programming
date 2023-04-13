@@ -36,7 +36,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	otro->key = strdup(key);
+	if (otro->key == NULL)
+	{
+		free(otro);
+		return (0);
+	}
 	otro->value = strdup(value);
+	if (otro->value == NULL)
+	{
+		free(otro->key);
+		free(otro);
+		return (0);
+	}
 	otro->next = ht->array[index];
 	ht->array[index] = otro;
 
